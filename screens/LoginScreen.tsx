@@ -20,7 +20,7 @@ import {signInSchema, signUpSchema} from "../shared/values/login/form-validation
 const LoginScreen: React.FC<any> = () => {
   const [isSignIn, setSignIn] = useState(false);
   const responseStatus = useAppSelector((state) => state.exceptionState.status);
-  const isLoading = useAppSelector((state) => state.appState.isLoading);
+  const isLoading = useAppSelector((state) => state.loginState.isLoading);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
