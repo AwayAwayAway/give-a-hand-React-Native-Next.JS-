@@ -1,16 +1,21 @@
 import {Action, configureStore, ThunkAction} from "@reduxjs/toolkit";
 import createSagaMiddleware from 'redux-saga';
-import appSlice from "./app-slice";
+import loginSlice from "./login/login-slice";
 import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
+import sagas from "./sagas";
+import exceptionSlice from "./exception/exception-slice";
 
 const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({
   reducer: {
-    appState: appSlice.reducer
+    loginState: loginSlice.reducer,
+    exceptionState: exceptionSlice.reducer
   },
   middleware: [sagaMiddleware]
 });
+
+sagaMiddleware.run(sagas);
 
 export const useAppDispatch: Function = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

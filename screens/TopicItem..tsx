@@ -4,7 +4,6 @@ import {DUM_FE_TOPICS, TopicValueType} from "../values/DUM_FE_TOPICS";
 import {ListItem} from "react-native-elements";
 import {Icon} from "react-native-elements/dist/icons/Icon";
 import {useAppDispatch} from "../store";
-import {appActions} from "../store/app-slice";
 
 type TopicProps = {
   data: TopicValueType[],
@@ -15,7 +14,6 @@ const TopicItem: React.FC<TopicProps> = (props) => {
   const dispatch = useAppDispatch();
 
   const handleTopicSelection = (id: string) => {
-    dispatch(appActions.setTopicId(id));
     props.navigation.navigate("TopicDetails");
   };
 
@@ -33,7 +31,7 @@ const TopicItem: React.FC<TopicProps> = (props) => {
             {item.item.time}
           </ListItem.Title>
           <ListItem.Subtitle right>
-            <Icon name={item.item.status ? 'check' : 'schedule'} />
+            <Icon name={item.item.status ? 'check' : 'schedule'}/>
           </ListItem.Subtitle>
         </ListItem.Content>
       </ListItem>
