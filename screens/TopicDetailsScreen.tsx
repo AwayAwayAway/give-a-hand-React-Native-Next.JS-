@@ -1,7 +1,6 @@
 import React from "react";
 import {useState} from "react";
 import {StyleSheet, Text, View} from "react-native";
-import {useAppSelector} from "../store";
 import {Button, Input, Overlay} from "react-native-elements";
 
 const TopicDetailsScreen: React.FC<any> = (props) => {
@@ -10,9 +9,7 @@ const TopicDetailsScreen: React.FC<any> = (props) => {
 
   const handleMessage = () => {
     setIsMessage(!isMessage);
-    console.log(message)
   }
-  const topicId = useAppSelector((state) => state.appState.topicId);
 
   return <View style={styles.wrapper}>
     <View style={styles.titleWrapper}>

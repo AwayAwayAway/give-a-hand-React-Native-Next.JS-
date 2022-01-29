@@ -1,12 +1,12 @@
 import React from "react";
 import {FlatList, TouchableOpacity} from "react-native";
-import {DUM_FE_TOPICS, TopicValueType} from "../values/DUM_FE_TOPICS";
 import {ListItem} from "react-native-elements";
 import {Icon} from "react-native-elements/dist/icons/Icon";
 import {useAppDispatch} from "../store";
+import {TopicsModel} from "../shared/models/topics/topics-model";
 
 type TopicProps = {
-  data: TopicValueType[],
+  data: TopicsModel[],
   navigation: any,
 }
 
@@ -17,6 +17,7 @@ const TopicItem: React.FC<TopicProps> = (props) => {
     props.navigation.navigate("TopicDetails");
   };
 
+  // @ts-ignore
   return <FlatList data={props.data} keyExtractor={item => item.id} renderItem={(item: any) => (
     <TouchableOpacity onPress={() => handleTopicSelection(item.item.id)}>
       <ListItem bottomDivider>
@@ -24,7 +25,7 @@ const TopicItem: React.FC<TopicProps> = (props) => {
           <ListItem.Title style={{color: 'red'}}>
             {item.item.title}
           </ListItem.Title>
-          <ListItem.Subtitle>{item.item.subtitle}</ListItem.Subtitle>
+          <ListItem.Subtitle>{item.item.section}</ListItem.Subtitle>
         </ListItem.Content>
         <ListItem.Content right>
           <ListItem.Title right style={{color: 'green'}}>

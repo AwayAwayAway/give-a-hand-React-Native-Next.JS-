@@ -13,7 +13,6 @@ const GiveAHand = () => {
   useEffect(() => {
     const login = async () => {
       await SecureStore.getItemAsync('isLogged').then(data => {
-        console.log(data)
         if (data === 'true') {
           setIsLogged(true);
         }

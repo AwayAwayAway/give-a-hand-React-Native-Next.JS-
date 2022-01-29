@@ -1,4 +1,4 @@
-export const DUM_CATEGORY_LIST = [
+export const categoryList = [
   {
     id: 'Front-end Topics',
     title: 'Front-end Topics',
