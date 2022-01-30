@@ -48,4 +48,18 @@ export class Topic extends Model<Topic, TopicCreationAttr> {
   })
   @Column({ type: DataType.STRING })
   author: string;
+
+  @ApiProperty({
+    example: '1',
+    description: "Author's id",
+  })
+  @Column({ type: DataType.INTEGER, allowNull: false })
+  authorId: number;
+
+  @ApiProperty({
+    example: 'pending',
+    description: "topic status",
+  })
+  @Column({ type: DataType.BOOLEAN })
+  status: boolean;
 }

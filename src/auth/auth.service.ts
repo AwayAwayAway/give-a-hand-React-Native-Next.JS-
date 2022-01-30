@@ -50,12 +50,15 @@ export class AuthService {
 
   private async validateUser(userDto: LoginUserDto) {
     const user = await this.userService.getByEmail(userDto.email);
-    const passwordEquals = await bcrypt.compare(
-      userDto.password,
-      user.password,
-    );
-    if (user && passwordEquals) {
-      return user;
+
+    if (user) {
+      const passwordEquals = await bcrypt.compare(
+        userDto.password,
+        user.password,
+      );
+      if (user && passwordEquals) {
+        return user;
+      }
     }
     throw new UnauthorizedException({ message: 'Bad password or email' });
   }

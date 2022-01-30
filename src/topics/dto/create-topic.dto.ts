@@ -21,4 +21,10 @@ export class CreateTopicDto {
 
   @ApiProperty({ example: 'Jon Doe', description: 'Full Name' })
   readonly author: string;
+
+  @ApiProperty({ example: '1', description: 'author Id' })
+  readonly authorId: number;
+
+  @ApiProperty({ example: 'false', description: 'topic status' })
+  declare status: boolean;
 }

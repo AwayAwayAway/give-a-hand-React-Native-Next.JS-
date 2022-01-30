@@ -1,13 +1,14 @@
-import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/sequelize';
-import { Topic } from './topics.model';
-import { CreateTopicDto } from './dto/create-topic.dto';
+import {Injectable} from '@nestjs/common';
+import {InjectModel} from '@nestjs/sequelize';
+import {Topic} from './topics.model';
+import {CreateTopicDto} from './dto/create-topic.dto';
 
 @Injectable()
 export class TopicService {
   constructor(@InjectModel(Topic) private topicRepository: typeof Topic) {}
 
   async createTopic(dto: CreateTopicDto) {
+    dto.status = false;
     return await this.topicRepository.create(dto);
   }
 
