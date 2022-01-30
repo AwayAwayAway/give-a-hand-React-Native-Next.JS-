@@ -34,7 +34,7 @@ const TopicListScreen: React.FC<any> = ({navigation, route}) => {
 
   useEffect(() => {
     dispatch(topicsAction.getTopicList({type: currentCategory}))
-  }, [frontList, backList, uiList, devList, dispatch])
+  }, [dispatch])
 
   return <TopicItem data={currentList} navigation={navigation}/>
 };

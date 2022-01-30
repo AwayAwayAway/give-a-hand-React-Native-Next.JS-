@@ -20,6 +20,8 @@ const TabNavigation = () => (
     }}
     />
     <Tab.Screen name='New Topic' component={NewTopicScreen} options={{
+      headerStyle: { backgroundColor: 'rgb(252,134,134)' },
+      headerTintColor: '#fff',
       tabBarIcon: ({color}) => (<MaterialCommunityIcons name='new-box' size={25} color={color}/>),
     }}/>
   </Tab.Navigator>

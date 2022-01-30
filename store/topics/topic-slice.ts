@@ -22,6 +22,7 @@ const topicSlice = createSlice({
   name: 'topics',
   reducers: {
     getTopicList(state, action: { payload: { type: string } }) {},
+    sendTopic(state, action: { payload: { topic: TopicsModel, type: string } }) {},
     setIsLoading(state, action) {
       state.isLoading = action.payload;
     },
@@ -36,7 +37,7 @@ const topicSlice = createSlice({
     },
     setDevList(state, action) {
       state.devTopic = action.payload;
-    }
+    },
   }
 });
 

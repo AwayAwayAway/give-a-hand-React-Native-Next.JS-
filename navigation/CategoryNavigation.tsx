@@ -12,11 +12,26 @@ const CategoryNavigation = () => (
         headerStyle: { backgroundColor: 'rgb(47,143,134)' },
         headerTintColor: '#fff',
     }}/>
-    <Stack.Screen name='TopicDetails' component={TopicDetailsScreen}/>
-    <Stack.Screen name='Front-end Topics' component={TopicListScreen}/>
-    <Stack.Screen name='Back-end Topics' component={TopicListScreen}/>
-    <Stack.Screen name='UI/UX Topics' component={TopicListScreen}/>
-    <Stack.Screen name='Dev-Ops Topics' component={TopicListScreen}/>
+    <Stack.Screen name='TopicDetails' component={TopicDetailsScreen} options={{
+        headerStyle: { backgroundColor: 'rgb(47,143,134)' },
+        headerTintColor: '#fff',
+    }}/>
+    <Stack.Screen name='Front-end Topics' component={TopicListScreen} options={{
+        headerStyle: { backgroundColor: 'rgb(105,32,206)' },
+        headerTintColor: '#fff',
+    }}/>
+    <Stack.Screen name='Back-end Topics' component={TopicListScreen} options={{
+        headerStyle: { backgroundColor: 'rgb(239,7,43)' },
+        headerTintColor: '#fff',
+    }}/>
+    <Stack.Screen name='UI/UX Topics' component={TopicListScreen} options={{
+        headerStyle: { backgroundColor: 'rgb(51,187,22)' },
+        headerTintColor: '#fff',
+    }}/>
+    <Stack.Screen name='Dev-Ops Topics' component={TopicListScreen} options={{
+        headerStyle: { backgroundColor: 'rgb(215,199,17)' },
+        headerTintColor: '#fff',
+    }}/>
   </Stack.Navigator>
 );
 

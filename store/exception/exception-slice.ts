@@ -1,30 +1,31 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 type AppStateType = {
-  status: string;
-  message: string;
-  errorCode: string;
+  error: {
+    status: string;
+    message: string;
+    errorCode: string;
+  }
 }
 
 const initialState: AppStateType = {
-  status: '',
-  message: '',
-  errorCode: '',
+  error: {
+    status: '',
+    message: '',
+    errorCode: '',
+  }
 }
 
 const exceptionSlice = createSlice({
   initialState: initialState,
   name: 'exception',
   reducers: {
-    setStatus(state, action) {
-      state.status = action.payload;
+    setResponseStatus(state, action: { payload: { status: string, message: string, errorCode: string } }) {
+      state.error = action.payload;
     },
-    setMessage(state, action) {
-      state.message = action.payload;
-    },
-    serErrorCode(state, action) {
-      state.errorCode = action.payload;
-    },
+    resetException(state) {
+      state.error = initialState.error
+    }
   }
 });
 

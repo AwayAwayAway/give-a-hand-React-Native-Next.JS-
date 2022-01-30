@@ -19,12 +19,12 @@ import {signInSchema, signUpSchema} from "../shared/values/login/form-validation
 
 const LoginScreen: React.FC<any> = () => {
   const [isSignIn, setSignIn] = useState(false);
-  const responseStatus = useAppSelector((state) => state.exceptionState.status);
   const isLoading = useAppSelector((state) => state.loginState.isLoading);
+  const responseStatus = useAppSelector((state) => state.exceptionState.error);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (responseStatus === 'success') {
+    if (responseStatus.status === 'success') {
       setSignIn(!isSignIn);
     }
   }, [responseStatus])
@@ -63,29 +63,29 @@ const LoginScreen: React.FC<any> = () => {
                 />
               </View>
               {isSignIn && <View>
-                  <Input
-                      placeholder='Jon'
-                      label="First Name"
-                      onChangeText={handleChange('firstName')}
-                      onBlur={handleBlur('firstName')}
-                      errorMessage={errors?.firstName && touched?.firstName ? errors.firstName : undefined}
-                      errorStyle={errors?.firstName && touched?.firstName ? styles.error : undefined}
-                      value={values.firstName}
-                      leftIcon={<MaterialCommunityIcons name='smart-card' size={20}/>}
-                  />
-              </View>}
+								<Input
+									placeholder='Jon'
+									label="First Name"
+									onChangeText={handleChange('firstName')}
+									onBlur={handleBlur('firstName')}
+									errorMessage={errors?.firstName && touched?.firstName ? errors.firstName : undefined}
+									errorStyle={errors?.firstName && touched?.firstName ? styles.error : undefined}
+									value={values.firstName}
+									leftIcon={<MaterialCommunityIcons name='smart-card' size={20}/>}
+								/>
+							</View>}
               {isSignIn && <View>
-                  <Input
-                      placeholder='Doe'
-                      label="Last Name"
-                      onChangeText={handleChange('lastName')}
-                      onBlur={handleBlur('lastName')}
-                      errorMessage={errors?.lastName && touched?.lastName ? errors.lastName : undefined}
-                      errorStyle={errors?.lastName && touched?.lastName ? styles.error : undefined}
-                      value={values.lastName}
-                      leftIcon={<MaterialCommunityIcons name='smart-card' size={20}/>}
-                  />
-              </View>}
+								<Input
+									placeholder='Doe'
+									label="Last Name"
+									onChangeText={handleChange('lastName')}
+									onBlur={handleBlur('lastName')}
+									errorMessage={errors?.lastName && touched?.lastName ? errors.lastName : undefined}
+									errorStyle={errors?.lastName && touched?.lastName ? styles.error : undefined}
+									value={values.lastName}
+									leftIcon={<MaterialCommunityIcons name='smart-card' size={20}/>}
+								/>
+							</View>}
               <View>
                 <Input
                   placeholder='Enter password'
@@ -100,43 +100,43 @@ const LoginScreen: React.FC<any> = () => {
                 />
               </View>
               {isSignIn && <View>
-                  <Input
-                      placeholder='Confirm password'
-                      label="Confirm password"
-                      onChangeText={handleChange('confirmPassword')}
-                      onBlur={handleBlur('confirmPassword')}
-                      secureTextEntry={true}
-                      errorMessage={errors?.confirmPassword && touched?.confirmPassword ? errors.confirmPassword : undefined}
-                      errorStyle={errors?.confirmPassword && touched?.confirmPassword ? styles.error : undefined}
-                      value={values.confirmPassword}
-                      leftIcon={<Icon name='lock'/>}
-                  />
-              </View>}
+								<Input
+									placeholder='Confirm password'
+									label="Confirm password"
+									onChangeText={handleChange('confirmPassword')}
+									onBlur={handleBlur('confirmPassword')}
+									secureTextEntry={true}
+									errorMessage={errors?.confirmPassword && touched?.confirmPassword ? errors.confirmPassword : undefined}
+									errorStyle={errors?.confirmPassword && touched?.confirmPassword ? styles.error : undefined}
+									value={values.confirmPassword}
+									leftIcon={<Icon name='lock'/>}
+								/>
+							</View>}
               <View>
                 <Button title={!isSignIn ? "Sign in" : "Sign Up"} buttonStyle={styles.button}
                         onPress={() => handleSubmit()} loading={isLoading}/>
               </View>
               {isSignIn && <View>
-                  <Button
-                      title="Sign in"
-                      buttonStyle={[styles.button, styles.register]}
-                      loading={isLoading}
-                      onPress={() => {
-                        setSignIn(!isSignIn);
-                        setErrors({});
-                      }}
-                  />
-              </View>}
-              {!isSignIn || isLoading && <View>
-                  <Button
-                      title="Register"
-                      buttonStyle={[styles.button, styles.register]}
-                      onPress={() => {
-                        setSignIn(!isSignIn);
-                        setErrors({});
-                      }}
-                  />
-              </View>}
+								<Button
+									title="Go back"
+									buttonStyle={[styles.button, styles.register]}
+									onPress={() => {
+                    setSignIn(!isSignIn);
+                    setErrors({});
+                  }}
+								/>
+							</View>}
+              {!isSignIn && <View>
+								<Button
+									title="Register"
+									buttonStyle={[styles.button, styles.register]}
+									onPress={() => {
+                    setSignIn(!isSignIn);
+                    setErrors({});
+                  }}
+								/>
+							</View>
+              }
             </View>
           </ImageBackground>
         </TouchableWithoutFeedback>

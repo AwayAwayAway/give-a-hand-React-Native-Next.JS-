@@ -1,13 +1,14 @@
 import axios from "axios";
 import {LoginModel} from "../../shared/models/login/login-model";
+import {IP} from "../../shared/constants/ip-value";
 
 class LoginService {
   login(userCredits: LoginModel, type: string) {
     switch (type) {
       case 'signIn':
-        return axios.post('http://10.104.2.46:5000/auth/login', {...userCredits});
+        return axios.post(`${IP.HOME}/auth/login`, {...userCredits});
       case 'signUp':
-        return axios.post('http://10.104.2.46:5000/auth/registration', {...userCredits});
+        return axios.post(`${IP.HOME}/auth/registration`, {...userCredits});
     }
   }
 }

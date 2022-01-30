@@ -1,9 +1,9 @@
 import {LoginModel} from "../../models/login/login-model";
 
 export const initialValues: LoginModel = {
-  email: 'test@test.com',
+  email: 'admin@admin.com',
   firstName: '',
   lastName: '',
-  password: 'password',
+  password: '1234',
   confirmPassword: ''
 };

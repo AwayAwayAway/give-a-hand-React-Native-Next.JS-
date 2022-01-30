@@ -5,6 +5,7 @@ import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 import sagas from "./sagas";
 import exceptionSlice from "./exception/exception-slice";
 import topicSlice from "./topics/topic-slice";
+import userSlice from "./user/user-slice";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -12,7 +13,8 @@ export const store = configureStore({
   reducer: {
     loginState: loginSlice.reducer,
     exceptionState: exceptionSlice.reducer,
-    topicState: topicSlice.reducer
+    topicState: topicSlice.reducer,
+    userState: userSlice.reducer
   },
   middleware: [sagaMiddleware]
 });
