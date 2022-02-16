@@ -58,7 +58,7 @@ export class Topic extends Model<Topic, TopicCreationAttr> {
 
   @ApiProperty({
     example: 'pending',
-    description: "topic status",
+    description: 'topic status',
   })
   @Column({ type: DataType.BOOLEAN })
   status: boolean;

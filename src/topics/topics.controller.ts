@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Patch,
+  Post,
+  Query,
+} from '@nestjs/common';
 import { TopicService } from './topics.service';
 import { CreateTopicDto } from './dto/create-topic.dto';
 import { ApiTags } from '@nestjs/swagger';
@@ -13,13 +21,21 @@ export class TopicsController {
     return this.topicService.createTopic(dto);
   }
 
+  @Patch('/:id')
+  update(@Param('id') id: number, @Body() dto: CreateTopicDto) {
+    return this.topicService.updateTopic(id, dto);
+  }
+
   @Get('/:value')
   getByValue(@Param('value') value: number) {
     return this.topicService.getTopicById(value);
   }
 
   @Get()
-  getBySection(@Query('section') section: string) {
-    return this.topicService.getAllTopicBySection(section);
+  getBySection(
+    @Query('section') section: string,
+    @Query('authorId') authorId: number,
+  ) {
+    return this.topicService.getAllTopicByQuery(section, authorId);
   }
 }
