@@ -2,16 +2,8 @@ import {ImageBackground, SafeAreaView, StyleSheet} from "react-native";
 import React from "react";
 import CategoryItem from "../components/CategoryItem";
 import {categoryList} from "../shared/values/category/category-list";
-import * as SecureStore from "expo-secure-store";
-
 
 const CategoryScreen: React.FC<any> = ({navigation}) => {
-  // const login = async () => {
-  //   await SecureStore.setItemAsync('isLogged', 'false').then(data => {})
-  // }
-  //
-  // login().then(() => {});
-  console.log('awdas')
   return (
     <ImageBackground source={require('../assets/category_background.jpg')} style={{width: '100%', height: '100%'}}>
       <SafeAreaView style={styles.container}>

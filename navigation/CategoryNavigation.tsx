@@ -7,13 +7,13 @@ import TopicListScreen from "../screens/TopicListScreen";
 const Stack = createNativeStackNavigator();
 
 const CategoryNavigation = () => (
-  <Stack.Navigator>
+  <Stack.Navigator initialRouteName='Category'>
     <Stack.Screen name='Category' component={CategoryScreen} options={{
-        headerStyle: { backgroundColor: 'rgb(47,143,134)' },
+        headerStyle: { backgroundColor: 'rgb(26,117,220)' },
         headerTintColor: '#fff',
     }}/>
-    <Stack.Screen name='TopicDetails' component={TopicDetailsScreen} options={{
-        headerStyle: { backgroundColor: 'rgb(47,143,134)' },
+    <Stack.Screen name='Details' component={TopicDetailsScreen} options={{
+        headerStyle: { backgroundColor: 'rgb(26,117,220)' },
         headerTintColor: '#fff',
     }}/>
     <Stack.Screen name='Front-end Topics' component={TopicListScreen} options={{

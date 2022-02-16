@@ -2,24 +2,23 @@ import React from "react";
 import {FlatList, TouchableOpacity} from "react-native";
 import {ListItem} from "react-native-elements";
 import {Icon} from "react-native-elements/dist/icons/Icon";
-import {useAppDispatch} from "../store";
 import {TopicsModel} from "../shared/models/topics/topics-model";
 import moment from "moment";
 
 type TopicProps = {
   data: TopicsModel[],
   navigation: any,
+  route?: string,
 }
 
-const TopicItem: React.FC<TopicProps> = (props) => {
-  const dispatch = useAppDispatch();
-
-  const handleTopicSelection = (id: string) => {
-    props.navigation.navigate("TopicDetails");
+const TopicListItem: React.FC<TopicProps> = (props) => {
+  const handleTopicSelection = (id: number | undefined) => {
+    props.navigation.navigate(props.route, id);
   };
+
   // @ts-ignore
   return <FlatList data={props.data} keyExtractor={item => item.id} renderItem={(item: {item: TopicsModel}) => (
-    <TouchableOpacity onPress={() => handleTopicSelection(item.item.section)}>
+    <TouchableOpacity onPress={() => handleTopicSelection(item.item.id)}>
       <ListItem bottomDivider>
         <ListItem.Content>
           <ListItem.Title style={{color: 'red'}}>
@@ -41,4 +40,4 @@ const TopicItem: React.FC<TopicProps> = (props) => {
   />
 };
 
-export default TopicItem;
+export default TopicListItem;
